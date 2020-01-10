@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1 shrink-to-fit=no">
+        {% if title %}
+            <title>Django Project | {{ title }}</title>
+        {% else %}
+            <title>Django Project</title>
+        {% endif %}
+        <!-- bootStrap CSS -->
+        <link rel="stylesheet" href="{% static 'blog/css/css/bootstrap.min.css' %}">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <!-- ================== nav bar ================== -->
+        {% include 'blog/navbar.html' %}
+
+        <!-- ================== Content block ================== -->
+        <main role="main" class="container">
+	  <div class="row">
+	    <div class="col-md-8">
+	      {% block content %}{% endblock %}
+	    </div>
+	    <div class="col-md-4">
+	      <div class="content-section">
+	        <h3>Our Sidebar</h3>
+              <p class='text-muted'>You can put any information here you'd like.</p>
+	          <ul class="list-group">
+	            <li class="list-group-item list-group-item-light">Latest Posts</li>
+	            <li class="list-group-item list-group-item-light">Announcements</li>
+	            <li class="list-group-item list-group-item-light">Calendars</li>
+	            <li class="list-group-item list-group-item-light">etc</li>
+	          </ul>
+	      </div>
+	    </div>
+	  </div>
+	</main>
+        </div>
+
+    <!--jQuery JS -->
+        <script src="{% static 'blog/js/jquery.js' %}"></script>
+    <!--bootStrap JS -->
+        <script src="{% static 'blog/js/js/bootstrap.min.js' %}"></script>
+    </body>
+</html>
